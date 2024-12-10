@@ -9,16 +9,17 @@ gather_task:
     local would know.
     This should be a list of places to go to, the city has to offer, including hidden gems, 
     cultural hotspots, must-visit landmarks, restaurants, etc.
-    
-    The final answer must be a comprehensive city guide, 
+    If you find a well known neighborhood or area, provided
+    a list of places to go to in that area
+    The final answer must be a comprehensive city guide list, 
     rich in cultural insights and practical tips, 
-    tailored to enhance the travel experience.
+    tailored to the traveler interests to enhance the travel experience.
     Traveler Interests: {interests}
     city: {city}
   expected_output: >
-    A comprehensive city guide list that 
-    includes attractions, local gems, events, and 
-    recommendations.
+    Should return a comprehensive city guide that listes  
+    all the places to go to, the city has to offer, including hidden gems, 
+    cultural hotspots, must-visit landmarks, restaurants, etc.
 
 
 plan_task:
