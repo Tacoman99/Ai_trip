@@ -7,7 +7,7 @@ gather_task:
     special events, and daily activity recommendations.
     Find the best spots to go to, the kind of place only a
     local would know.
-    This should be a list of places to go to, the city has to offer, including hidden gems, 
+    This should be a list of places to go to, the area has to offer, including hidden gems, 
     cultural hotspots, must-visit landmarks, restaurants, etc.
     If you find a well known neighborhood or area, provided
     a list of places to go to in that area
@@ -17,9 +17,8 @@ gather_task:
     Traveler Interests: {interests}
     city: {city}
   expected_output: >
-    Should return a comprehensive city guide that listes  
-    all the places to go to, the city has to offer, including hidden gems, 
-    cultural hotspots, must-visit landmarks, restaurants, etc.
+    Should return a comprehensive list of places to go to, the area has to offer, including hidden gems, 
+    cultural hotspots, must-visit landmarks, restaurant,activities etc.
 
 
 plan_task:
@@ -29,18 +28,18 @@ plan_task:
     weather forecasts, places to eat, packing suggestions, 
     and a budget breakdown.
     
-    You MUST suggest actual places to visit, actual hotels 
-    to stay and actual restaurante to go to.
+    You MUST suggest real places to visit, real hotels 
+    to stay and real restaurante to go to.
         
     This itinerary should cover all aspects of the trip, 
     from arrival to departure, integrating the city guide
     information with practical travel logistics.
         
     Your final answer MUST be a complete expanded travel plan,
-    formatted as markdown, encompassing a daily schedule,
+    formatted as markdown, encompassing a detailed daily schedule that covers all hours of the day,
     anticipated weather conditions, recommended clothing and
     items to pack, and a detailed budget, ensuring THE BEST
-    TRIP EVER, Be specific and give it a reason why you picked
+    TRIP EVER!  Be specific and give it a reason why you picked
     up each place, what make them special!
     
     Traveler Interests: {interests}

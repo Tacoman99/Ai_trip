@@ -4,12 +4,12 @@ import os
 
 
 if __name__ == "__main__":
-  from ai_agents.config.config import config
+  from config.config import settings
   import yaml
-  from crews import TripCrew
+  from src.crews import TripCrew
 
   logger.info("\n\nWelcome to Trip Planner Crew\n\n")
-  os.environ["SERPER_API_KEY"] = config.serper_api_key
+  os.environ["SERPER_API_KEY"] = settings.serper_api_key
 
 
   # Define file paths for YAML configurations
@@ -32,9 +32,9 @@ if __name__ == "__main__":
   agentops.init(api_key='703a78b8-2e98-4be3-9cca-29a572aec8dc', default_tags=["crew-trip-planner"])
 
   trip_crew = TripCrew( 
-    inputs=config.inputs,
-    model=config.gemini_model,
-    api_key=config.gcp_key,
+    inputs= settings.inputs,
+    model=settings.gemini_model,
+    api_key=settings.gcp_key,
     agents_config=agents_config,
     tasks_config=tasks_config
   )

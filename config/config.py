@@ -9,4 +9,4 @@ class Settings(BaseSettings):
     class Config:
         env_file = "credentials.env"
 
-config = Settings()
+settings = Settings()

@@ -1,1 +1,2 @@
-## Could use flows to have multiagent crews working together 
+## Could use flows to have multiagent crews working together. Output of local expert agent could be used as context for the itinerary agentuy8
+## Add memory to the agents so users can ask follow up questions and adjust the itinerary
