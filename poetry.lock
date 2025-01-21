@@ -2,25 +2,23 @@
 
 [[package]]
 name = "agentops"
-version = "0.3.18"
+version = "0.3.24"
 description = "Observability and DevTool Platform for AI Agents"
 optional = false
-python-versions = ">=3.7"
+python-versions = "<3.14,>=3.9"
 files = [
-    {file = "agentops-0.3.18-py3-none-any.whl", hash = "sha256:8b48d8a1662f276653430fd541c77fa4f9a15a43e881b518ff88ea56925afcf7"},
-    {file = "agentops-0.3.18.tar.gz", hash = "sha256:4d509754df7be52579597cc9f53939c5218131a0379463e0ff6f6f40cde9fcc4"},
+    {file = "agentops-0.3.24-py3-none-any.whl", hash = "sha256:c5dfc8098b0dd49ddd819aa55280d07f8bfbf2f8fa088fc51ff5849b65062b10"},
+    {file = "agentops-0.3.24.tar.gz", hash = "sha256:c97a3af959b728bcfbfb1ac2494cef82d8804defc9dac858648b39a9ecdcd2e4"},
 ]
 
 [package.dependencies]
-packaging = "23.2"
-psutil = "5.9.8"
-PyYAML = ">=5.3,<7.0"
+opentelemetry-api = {version = ">=1.27.0", markers = "python_version >= \"3.10\""}
+opentelemetry-exporter-otlp-proto-http = {version = ">=1.27.0", markers = "python_version >= \"3.10\""}
+opentelemetry-sdk = {version = ">=1.27.0", markers = "python_version >= \"3.10\""}
+psutil = ">=5.9.8,<6.1.0"
+pyyaml = ">=5.3,<7.0"
 requests = ">=2.0.0,<3.0.0"
-termcolor = ">=2.3.0"
-
-[package.extras]
-dev = ["pyfakefs", "pytest (==7.4.0)", "pytest-asyncio", "pytest-depends", "pytest-mock", "pytest-vcr", "requests-mock (==1.11.0)", "ruff", "tach (>=0.9,<1.0)"]
-langchain = ["langchain (==0.2.14)"]
+termcolor = ">=2.3.0,<2.5.0"
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -5436,13 +5434,13 @@ test = ["pytest", "tornado (>=4.5)", "typeguard"]
 
 [[package]]
 name = "termcolor"
-version = "2.5.0"
+version = "2.4.0"
 description = "ANSI color formatting for output in terminal"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "termcolor-2.5.0-py3-none-any.whl", hash = "sha256:37b17b5fc1e604945c2642c872a3764b5d547a48009871aea3edd3afa180afb8"},
-    {file = "termcolor-2.5.0.tar.gz", hash = "sha256:998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"},
+    {file = "termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63"},
+    {file = "termcolor-2.4.0.tar.gz", hash = "sha256:aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"},
 ]
 
 [package.extras]

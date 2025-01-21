@@ -58,7 +58,7 @@ class TripCrew:
     gather_task = Task(
       agent=local_expert_agent,
       config=self.tasks_config['gather_task'],
-      output_json=City_guide
+      output_pydantic=City_guide
     )
     plan_task = Task(
       agent=itinerary_agent, 

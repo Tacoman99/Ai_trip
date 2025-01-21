@@ -38,7 +38,7 @@ if __name__ == "__main__":
     agents_config=agents_config,
     tasks_config=tasks_config
   )
-
+  breakpoint()
   # Run the crew
   try:  
     result = trip_crew.run()

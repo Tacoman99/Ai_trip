@@ -17,33 +17,57 @@ gather_task:
     Traveler Interests: {interests}
     city: {city}
   expected_output: >
-    Should return a comprehensive list of places to go to, the area has to offer, including hidden gems, 
-    cultural hotspots, must-visit landmarks, restaurant,activities etc.
+    Should return a list of places to visit in a dictionary format
+    [ city_name : < Name of the city >,
+        places_to_visit: [
+        [
+        place_name: < Name of the place >,
+        place_type: < Category of the place  i.e. restaurant, landmark, activity, etc. >,
+        place_description: < Markdown formatted description of the place >,
+        place_reason: < Markdown formatted reason for the recommendation >
+        ]
+    ]
+
 
 
 plan_task:
   description: >
-    Expand this guide into a a full {date_range} day travel 
-    itinerary with detailed per-day plans, including 
-    weather forecasts, places to eat, packing suggestions, 
-    and a budget breakdown.
-    
-    You MUST suggest real places to visit, real hotels 
-    to stay and real restaurante to go to.
-        
-    This itinerary should cover all aspects of the trip, 
-    from arrival to departure, integrating the city guide
-    information with practical travel logistics.
-        
-    Your final answer MUST be a complete expanded travel plan,
-    formatted as markdown, encompassing a detailed daily schedule that covers all hours of the day,
-    anticipated weather conditions, recommended clothing and
-    items to pack, and a detailed budget, ensuring THE BEST
-    TRIP EVER!  Be specific and give it a reason why you picked
-    up each place, what make them special!
-    
-    Traveler Interests: {interests}
 
+    You will receive a city guide from the 'gather_task' and a traveler profile as inputs, structured as a dictionary with the following keys:  
+    - `city_name` (str): Name of the city.  
+    - `places_to_visit` (list): A curated list of attractions, landmarks, or activities in the city.  
+
+    Using the information provided, create a **detailed travel itinerary** for the specified date range, tailored to the travelers
+    interests. Your itinerary should include:  
+    1. **Daily Breakdown:** Organize activities by day, specifying the time for each.  
+    2. **Activities and Visits:** Suggest the best times to visit each location, including detailed descriptions of what to do.  
+    3. **Dining Suggestions:** Recommend restaurants or cafes near each activity, considering cuisine preferences and traveler interests.  
+    4. **Weather Forecasts:** Incorporate a realistic weather outlook for each day, highlighting any adjustments needed (e.g., "bring a 
+    raincoat for light showers").  
+    5. **Packing Tips:** Provide practical packing suggestions based on the itinerary and weather conditions.  
+    6. **Budget Breakdown:** Estimate costs for meals, activities, transportation, and other expenses, ensuring a clear total for the 
+    trip.  
+    Make this itinerary the best possible travel experience! Use vibrant descriptions, helpful tips, and creative ideas to make the trip 
+    unforgettable for the traveler.  
+
+    Itinerary Format Example:  
+    - Day 1: Exploring San Francisco  
+      - 7:00 AM – 8:30 AM:  
+        Start with breakfast at Mama’s on Washington Square, famous for its omelets and French toast.  
+
+      - 8:30 AM – 10:30 AM:  
+        Visit Alcatraz Island. Take the ferry from Pier 33 and enjoy an audio-guided tour of the historic prison.  
+
+      - 10:30 AM – 12:00 PM:  
+        Stroll along Fisherman’s Wharf to enjoy the vibrant atmosphere, sea lions at Pier 39, and a stop at Ghirardelli Square for dessert.  
+
+        ... (continue for the rest of the day with similar detail).  
+
+    Focus on delivering a vibrant, engaging, and personalized itinerary while meeting all traveler expectations.
+
+    Inputs:
+    date range: {date_range}
+    traveler interests: {interests}
   expected_output: >
     A detailed travel itinerary in markdown format that 
     includes attractions, local customs, events, and 
