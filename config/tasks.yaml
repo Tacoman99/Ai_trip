@@ -7,13 +7,22 @@ gather_task:
     special events, and daily activity recommendations.
     Find the best spots to go to, the kind of place only a
     local would know.
+    
     This should be a list of places to go to, the area has to offer, including hidden gems, 
     cultural hotspots, must-visit landmarks, restaurants, etc.
     If you find a well known neighborhood or area, provided
     a list of places to go to in that area
+
     The final answer must be a comprehensive city guide list, 
     rich in cultural insights and practical tips, 
     tailored to the traveler interests to enhance the travel experience.
+
+    For your research look for places online and find more infomation about them using the google places tool
+    to get reviews and more information about the places to visit
+
+    If there are any errors (e.g., Google Places API failure), document them clearly
+    and retry the failed operation if possible.
+
     Traveler Interests: {interests}
     city: {city}
   expected_output: >

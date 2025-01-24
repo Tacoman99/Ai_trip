@@ -1,33 +1,37 @@
 import googlemaps
-from typing import Type
-from crewai.tools import BaseTool
-from pydantic import BaseModel, Field
+from typing import Type, Optional
 import pandas as pd 
 import requests
 from config.config import settings
 
 class GooglePlaces:
-    def __init__(self, settings:dict, area:str, keyword:str, radius:int):
-        """Initialize the GooglePlaces class
+    def __init__(
+                self,  
+                query: str, 
+                radius: int,
+                area: Optional[str] = None,  # Added a comma here
+                ):
+        
+            """Initialize the GooglePlaces class
 
-        Args:
-            settings (dict): Configuration dictionary
-            area (str): Area to search for places
-            keyword (str): Keyword to search for places
-            radius (int): Radius to search for places
-        """
-        self.settings = settings
-        self.area = area
-        self.keyword = keyword
-        self.radius = radius
-        self.API_KEY = settings.gcp_key
-        self.search_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-        self.details_url = "https://maps.googleapis.com/maps/api/place/details/json"
+            Args:
+                settings (dict): Configuration dictionary
+                area (str): Area to search for places
+                query (str): Query to search for places
+                radius (int): Radius to search for places
+            """
+            self.settings = settings
+            self.area = area
+            self.query = query
+            self.radius = radius
+            self.API_KEY = settings.gcp_key
+            self.search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+            self.details_url = "https://maps.googleapis.com/maps/api/place/details/json"
 
-        gmaps = googlemaps.Client(key=self.API_KEY)
-        geocode_result = gmaps.geocode(self.area)
+        #gmaps = googlemaps.Client(key=self.API_KEY)
+            #geocode_result = gmaps.geocode(self.area)
 
-        self.location = f"{geocode_result[0]['geometry']['location']['lat']}, {geocode_result[0]['geometry']['location']['lng']}"
+            #self.location = f"{geocode_result[0]['geometry']['location']['lat']}, {geocode_result[0]['geometry']['location']['lng']}"
 
     def _get_place_details(self, place_id):
         """Get place details from Google Places API
@@ -57,15 +61,17 @@ class GooglePlaces:
         data = []
         reviews = []
         params = {
-            'location': self.location,
+            #'location': self.location,
             'radius': self.radius,
-            'keyword': self.keyword,
+            'query': self.query,
             'key': self.API_KEY
         }
         while True:
             response = requests.get(self.search_url, params=params)
             results = response.json().get('results', [])
             next_page_token = response.json().get('next_page_token', None)
+
+            #breakpoint()
 
             for result in results:
                 place = {
@@ -94,7 +100,7 @@ class GooglePlaces:
 
             if next_page_token:
                 params['pagetoken'] = next_page_token
-                # Esperar unos segundos antes de realizar la siguiente solicitud debido a limitaciones de la API de Google Places
+                ## Wait a few seconds before making the next request due to Google Places API limitations
                 import time
                 time.sleep(2)
             else:
@@ -104,11 +110,11 @@ class GooglePlaces:
         df_reviews = pd.DataFrame(reviews)
         merged_df = pd.merge(df_places, df_reviews, on='place_id', how='left')
 
-        merged_df.to_csv(f"{self.keyword}_reviews.csv", index=False)
+        merged_df.to_csv(f"{'data'}_reviews.csv", index=False)
 
         return merged_df
     
 if __name__ == "__main__":
-    google_places = GooglePlaces(settings=settings, area="New York, NY", keyword="restaurant", radius=5000)
+    google_places = GooglePlaces(area="San Diego, CA", query="tacos in san diego", radius=5000)
     merged_df = google_places.fetch_places()
     print(merged_df)

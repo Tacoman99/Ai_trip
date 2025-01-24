@@ -1,7 +1,7 @@
 from crewai import Agent,LLM,Task,Crew
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
 from config.base_models import City_guide
-from tools.google_places import GooglePlacesTool
+from tools.google_places_tool import GooglePlacesTool
 
 
 class TripCrew:
