@@ -1,5 +1,5 @@
 run:
-	poetry run python -m src.main
+	uv run python -m src.TripCrew.main
 
 test_google_api:
-	poetry run python -m tools.google_api
+	uv run python -m tools.google_api

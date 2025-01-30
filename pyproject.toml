@@ -1,24 +1,47 @@
-[tool.poetry]
-name = "ai-agents"
+[project]
+authors = [
+    { name = "Tacoman99", email = "jorgepadres789@gmail.com" },
+]
+requires-python = "<3.13,>=3.11"
+dependencies = [
+    "pydantic<3.0.0,>=2.10.2",
+    "loguru<1.0.0,>=0.7.2",
+    "pyyaml<7.0.0,>=6.0.2",
+    "googlemaps<5.0.0,>=4.10.0",
+    "requests<3.0.0,>=2.32.3",
+    "config<1.0.0,>=0.5.1",
+    "google-generativeai<1.0.0,>=0.8.4",
+    "pydantic-settings>=2.7.1",
+    "agentops>=0.3.26",
+    "crewai[tools]>=0.100.0",
+]
+name = "TripCrew"
 version = "0.1.0"
 description = ""
-authors = ["Tacoman99 <jorgepadres789@gmail.com>"]
 readme = "README.md"
-packages = [{include = "ai_agents", from = "src"}]
 
-[tool.poetry.dependencies]
-python = ">=3.11,<3.13"
-crewai = {extras = ["agentops"], version = "^0.86.0"}
-pydantic = "^2.10.2"
-loguru = "^0.7.2"
-pyyaml = "^6.0.2"
-googlemaps = "^4.10.0"
-requests = "^2.32.3"
-tabulate = "^0.9.0"
-agentops = "^0.3.18"
-config = "^0.5.1"
+[project.scripts]
 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+
+[tool.crewai]
+type = "crew"
+
+[tool.ruff]
+line-length = 88
+lint.select = [
+    "C",  # mccabe rules
+    "F",  # pyflakes rules
+    "E",  # pycodestyle error rules
+    "W",  # pycodestyle warning rules
+    "B",  # flake8-bugbear rules
+    "I",  # isort rules
+]
+lint.ignore = [
+    "C901",  # max-complexity-10
+    "E501",  # line-too-long
+]
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "single"

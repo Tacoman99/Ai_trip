@@ -23,8 +23,7 @@ gather_task:
     If there are any errors (e.g., Google Places API failure), document them clearly
     and retry the failed operation if possible.
 
-    Traveler Interests: {interests}
-    city: {city}
+    Travelers input:{travelers_input}
   expected_output: >
     Should return a list of places to visit in a dictionary format
     [ city_name : < Name of the city >,
@@ -74,9 +73,7 @@ plan_task:
 
     Focus on delivering a vibrant, engaging, and personalized itinerary while meeting all traveler expectations.
 
-    Inputs:
-    date range: {date_range}
-    traveler interests: {interests}
+    Travelers input:{travelers_input}
   expected_output: >
     A detailed travel itinerary in markdown format that 
     includes attractions, local customs, events, and 
