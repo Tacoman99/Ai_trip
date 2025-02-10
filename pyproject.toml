@@ -13,7 +13,9 @@ dependencies = [
     "google-generativeai<1.0.0,>=0.8.4",
     "pydantic-settings>=2.7.1",
     "agentops>=0.3.26",
-    "crewai[tools]>=0.100.0",
+    "crewai>=0.100.1",
+    "crewai-tools>=0.33.0",
+    "google-maps-routeoptimization>=0.1.7",
 ]
 name = "TripCrew"
 version = "0.1.0"
@@ -45,3 +47,6 @@ lint.ignore = [
 [tool.ruff.format]
 indent-style = "space"
 quote-style = "single"
+
+[tool.uv.workspace]
+members = ["src/frontend"]

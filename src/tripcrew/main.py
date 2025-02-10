@@ -4,17 +4,17 @@ import os
 
 
 if __name__ == "__main__":
-    from src.TripCrew.config.config import settings
+    from config.config import settings
     import yaml
-    from src.TripCrew.crew import TripCrew
+    from crew import TripCrew
 
     logger.info("\n\nWelcome to Trip Planner Crew\n\n")
     os.environ["SERPER_API_KEY"] = settings.serper_api_key
 
     # Define file paths for YAML configurations
     files = {
-        "agents": "src/TripCrew/config/agents.yaml",
-        "tasks": "src/TripCrew/config/tasks.yaml",
+        "agents": "config/agents.yaml",
+        "tasks": "config/tasks.yaml",
     }
 
     # Load configurations from YAML files

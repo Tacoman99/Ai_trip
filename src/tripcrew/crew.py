@@ -1,6 +1,6 @@
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
 from crewai import Agent, LLM, Task, Crew, Process
-from src.TripCrew.config.base_models import City_guide
+from config.base_models import City_guide
 from tools.google_places_tool import GooglePlacesTool
 
 
@@ -62,7 +62,7 @@ class TripCrew:
             agent=itinerary_agent,
             config=self.tasks_config["plan_task"],
             context=[gather_task],
-            output_file="itinerary.md",
+            output_file="itinerary2.md",
         )
 
         crew = Crew(

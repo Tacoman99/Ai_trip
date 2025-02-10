@@ -1,7 +1,7 @@
 from typing import Optional
 import pandas as pd
 import requests
-from src.TripCrew.config.config import settings
+from config.config import settings
 
 
 class GooglePlaces:

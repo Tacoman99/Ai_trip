@@ -1,5 +1,5 @@
 run:
-	uv run python -m src.TripCrew.main
+	uv run python  main.py
 
 test_google_api:
 	uv run python -m tools.google_api
