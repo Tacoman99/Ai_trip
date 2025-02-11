@@ -1,21 +1,20 @@
 import agentops
 from loguru import logger
 import os
+from config.config import settings
+import yaml
+from crew import TripCrew
 
 
-if __name__ == "__main__":
-    from config.config import settings
-    import yaml
-    from crew import TripCrew
-
+def dacrew():
     logger.info("\n\nWelcome to Trip Planner Crew\n\n")
     os.environ["SERPER_API_KEY"] = settings.serper_api_key
 
     # Define file paths for YAML configurations
-    files = {
+    files = {   
         "agents": "config/agents.yaml",
         "tasks": "config/tasks.yaml",
-    }
+        }
 
     # Load configurations from YAML files
     configs = {}
@@ -50,3 +49,9 @@ if __name__ == "__main__":
     logger.info(result)
 
     agentops.end_session("Success")
+
+    return result
+
+
+if __name__ == "__main__":
+    dacrew()  
