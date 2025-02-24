@@ -13,7 +13,7 @@ class TripCrew:
         self,
         model: str,
         api_key: str,
-        inputs: dict,
+        travelers_input: str,
         agents_config: dict,
         tasks_config: dict,
     ):
@@ -23,7 +23,7 @@ class TripCrew:
         Args:
           model: The model to use
           api_key: The API key to use
-          inputs: The inputs for the crew
+          travelers_input: The inputs for the crew
           agents_config: The configuration for the agents
           tasks_config: The configuration for the tasks
 
@@ -33,7 +33,7 @@ class TripCrew:
         self.llm = LLM(model=model, api_key=api_key, timeout=60)
         self.model = model
         self.api_key = api_key
-        self.inputs = inputs
+        self.travelers_input = travelers_input
         self.agents_config = agents_config
         self.tasks_config = tasks_config
 
@@ -72,6 +72,8 @@ class TripCrew:
             verbose=True,
             chat_llm="gpt-4o",
         )
+        #converting the travelers_input to a dictionary
+        inputs = {"travelers_input": self.travelers_input}
 
-        result = crew.kickoff(inputs=self.inputs)
+        result = crew.kickoff(inputs=inputs)
         return result

@@ -7,6 +7,7 @@ class Place_to_visit(BaseModel):
     place_type: str = Field(..., description="Type of the place")
     place_description: str = Field(..., description="Description of the place")
     place_reason: str = Field(..., description="Reason for the recommendations")
+    place_sentiment: str = Field(..., description=" Overall sentiment of the reviews")
 
 
 class City_guide(BaseModel):

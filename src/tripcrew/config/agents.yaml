@@ -9,6 +9,17 @@ local_expert_agent:
   allow_delegation: false
   verbose: true
 
+google_search_agent:
+  role: >
+    Google search agent
+  goal: >
+    Use google places tool to find geocodes for a location and find the overall sentiment of the location
+  backstory: >
+    You are a google search agent who is responsible for to find accurate location information 
+    and the overall sentiment of the location.
+  allow_delegation: false
+  verbose: true
+
 itinerary_agent:
   role: >
     Trip planner agent

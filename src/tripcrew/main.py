@@ -6,7 +6,17 @@ import yaml
 from crew import TripCrew
 
 
-def dacrew():
+def dacrew(
+        travelers_input: str
+        ):
+    """
+    This function is the main function that will be used to run the crew.
+    It will take in a travelers_input and return a result.
+    Args:
+        travelers_input: The input for the crew
+    Returns:
+        result: The result of the crew 
+    """
     logger.info("\n\nWelcome to Trip Planner Crew\n\n")
     os.environ["SERPER_API_KEY"] = settings.serper_api_key
 
@@ -33,7 +43,7 @@ def dacrew():
     )
 
     trip_crew = TripCrew(
-        inputs=settings.inputs,
+        travelers_input=travelers_input,
         model=settings.gemini_model,
         api_key=settings.gcp_key,
         agents_config=agents_config,

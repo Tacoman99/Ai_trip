@@ -17,10 +17,10 @@ gather_task:
     rich in cultural insights and practical tips, 
     tailored to the traveler interests to enhance the travel experience.
 
-    For your research look for places online and find more infomation about them using the google places tool
-    to get reviews and more information about the places to visit
+    For your research look for places online and find more infomation about them serper tool to search the web
+    then scrape the website to get the information you need
 
-    If there are any errors (e.g., Google Places API failure), document them clearly
+    If there are any errors  document them clearly
     and retry the failed operation if possible.
 
     Travelers input:{travelers_input}
@@ -36,7 +36,34 @@ gather_task:
         ]
     ]
 
+reviews_task:
+  description: >
+    You will receive a list of places to visit from the 'reviews_task' and a traveler profile as inputs, structured as a dictionary with the following keys:
+    - `city_name` (str): Name of the city.
+    - `places_to_visit` (list): A curated list of attractions, landmarks, or activities in the city.
 
+    your goal is to use the google places tool to find the reviews for the places to visit then analyze the reviews and give a summary of the reviews
+    and the overall sentiment of the reviews. You will add columns to the places_to_visit list for each place with the following information:
+    geocode: < Geocodes for the place >
+    place_sentiment: < Overall sentiment of the reviews >
+    place_summary: < Summary of the reviews >
+    place_reviews: < List of reviews >
+
+  expected_output: >
+    Should return a list of places to visit in a dictionary format
+    [ city_name : < Name of the city >,
+        places_to_visit: [
+        [
+        place_name: < Name of the place >,
+        place_type: < Category of the place  i.e. restaurant, landmark, activity, etc. >,
+        place_description: < Markdown formatted description of the place >,
+        place_reason: < Markdown formatted reason for the recommendation >
+        geocode: < Geocodes for the place >
+        place_sentiment: < Overall sentiment of the reviews >
+        place_summary: < Summary of the reviews >
+        place_reviews: < List of reviews >
+        ]
+    ]
 
 plan_task:
   description: >
