@@ -1,2 +1,16 @@
-## Could use flows to have multiagent crews working together. Output of local expert agent could be used as context for the itinerary agentuy8
-## Add memory to the agents so users can ask follow up questions and adjust the itinerary
+# Personalized Route Optimization with Crewai
+
+This repository demonstrates personalized route optimization using the Crewai framework, leveraging AI agents to collaboratively generate tailored and efficient travel itineraries.
+
+## Requirements
+
+- Google API Key: [Get your Google API key](https://console.cloud.google.com/apis/credentials)  
+- Serper.dev API Key: [Get your Serper.dev API key](https://serper.dev)  
+
+## Setup
+
+1. Clone the repository.
+2. Navigate to the project directory:
+
+```bash
+cd tripcrew
