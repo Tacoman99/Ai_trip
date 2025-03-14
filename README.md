@@ -1,6 +1,6 @@
 # Personalized Route Optimization with Crewai
 
-This repository demonstrates personalized route optimization using the Crewai framework, leveraging AI agents to collaboratively generate tailored and efficient travel itineraries.
+This repository demonstrates personalized route optimization using the Crewai framework, leveraging AI agents to collaboratively generate tailored and efficient travel itineraries and chainlit to manage the frontend 
 
 ## Requirements
 
@@ -13,4 +13,7 @@ This repository demonstrates personalized route optimization using the Crewai fr
 2. Navigate to the project directory:
 
 ```bash
-cd tripcrew
+cd  src/tripcrew
+
+```bash
+make run_app
