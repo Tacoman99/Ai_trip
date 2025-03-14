@@ -1,4 +1,4 @@
-run:
+run-dev:
 	uv run python  main.py
 
 run_app:

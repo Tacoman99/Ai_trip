@@ -43,12 +43,19 @@ class TripCrew:
             llm=self.llm,
             config=self.agents_config["local_expert_agent"],
             cache=True,
-            tools=[SerperDevTool(), ScrapeWebsiteTool(), GooglePlacesTool()],
+            tools=[SerperDevTool(), ScrapeWebsiteTool()],
+        )
+        google_search_agent = Agent(
+            llm=self.llm,
+            config=self.agents_config["google_search_agent"],
+            cache=True,
+            tools=[GooglePlacesTool()],
         )
 
         itinerary_agent = Agent(
             llm=self.llm,
             config=self.agents_config["itinerary_agent"],
+            tools=[GooglePlacesTool()],
         )
 
         # Initialize the tasks
@@ -56,6 +63,11 @@ class TripCrew:
         gather_task = Task(
             agent=local_expert_agent,
             config=self.tasks_config["gather_task"],
+            output_pydantic=City_guide,
+        )
+        reviews_task = Task(
+            agent=google_search_agent,
+            config=self.tasks_config["reviews_task"],
             output_pydantic=City_guide,
         )
         plan_task = Task(
@@ -66,8 +78,8 @@ class TripCrew:
         )
 
         crew = Crew(
-            agents=[local_expert_agent, itinerary_agent],
-            tasks=[gather_task, plan_task],
+            agents=[local_expert_agent,google_search_agent, itinerary_agent],
+            tasks=[gather_task,reviews_task, plan_task],
             process=Process.sequential,
             verbose=True,
             chat_llm="gpt-4o",

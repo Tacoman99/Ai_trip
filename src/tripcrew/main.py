@@ -64,4 +64,4 @@ def dacrew(
 
 
 if __name__ == "__main__":
-    dacrew()  
+    dacrew(travelers_input="I want to go to San Diego, CA for 5 days")  

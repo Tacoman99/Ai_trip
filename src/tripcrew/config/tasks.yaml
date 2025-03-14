@@ -17,15 +17,15 @@ gather_task:
     rich in cultural insights and practical tips, 
     tailored to the traveler interests to enhance the travel experience.
 
-    For your research look for places online and find more infomation about them serper tool to search the web
-    then scrape the website to get the information you need
+    For your research look for places online and find more infomation about them serperdevtool to search the web
+    then scrape the website with the scrapewesitetool to get the information you need to find the best places to visit 
 
     If there are any errors  document them clearly
     and retry the failed operation if possible.
 
     Travelers input:{travelers_input}
   expected_output: >
-    Should return a list of places to visit in a dictionary format
+    Should return a pydantic model of a list of places to visit in a dictionary format
     [ city_name : < Name of the city >,
         places_to_visit: [
         [
@@ -47,10 +47,10 @@ reviews_task:
     geocode: < Geocodes for the place >
     place_sentiment: < Overall sentiment of the reviews >
     place_summary: < Summary of the reviews >
-    place_reviews: < List of reviews >
-
+    place_latitude: < Latitude of the place >
+    place_longitude: < Longitude of the place >
   expected_output: >
-    Should return a list of places to visit in a dictionary format
+    Should return a pydantic model of a list of places to visit in a dictionary format
     [ city_name : < Name of the city >,
         places_to_visit: [
         [
@@ -61,7 +61,8 @@ reviews_task:
         geocode: < Geocodes for the place >
         place_sentiment: < Overall sentiment of the reviews >
         place_summary: < Summary of the reviews >
-        place_reviews: < List of reviews >
+        place_latitude: < Latitude of the place >
+        place_longitude: < Longitude of the place >
         ]
     ]
 

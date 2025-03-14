@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field
 
 
@@ -7,7 +7,11 @@ class Place_to_visit(BaseModel):
     place_type: str = Field(..., description="Type of the place")
     place_description: str = Field(..., description="Description of the place")
     place_reason: str = Field(..., description="Reason for the recommendations")
-    place_sentiment: str = Field(..., description=" Overall sentiment of the reviews")
+    # make this optional  field
+    place_latitude: float = Optional[Field(..., description=" Latitude of the place")]
+    place_longitude: float = Optional[Field(..., description=" Longitude of the place")]
+    place_sentiment: str = Optional[Field(..., description=" Overall sentiment of the reviews")]
+    place_summary: str = Optional[Field(..., description=" Summary of the reviews")]
 
 
 class City_guide(BaseModel):

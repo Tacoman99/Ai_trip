@@ -6,12 +6,6 @@ resolution-markers = [
     "python_full_version >= '3.12.4'",
 ]
 
-[manifest]
-members = [
-    "frontend",
-    "tripcrew",
-]
-
 [[package]]
 name = "agentops"
 version = "0.3.26"
@@ -33,11 +27,11 @@ wheels = [
 
 [[package]]
 name = "aiofiles"
-version = "23.2.1"
+version = "24.1.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/af/41/cfed10bc64d774f497a86e5ede9248e1d062db675504b41c320954d99641/aiofiles-23.2.1.tar.gz", hash = "sha256:84ec2218d8419404abcb9f0c02df3f34c6e0a68ed41072acfb1cef5cbc29051a", size = 32072 }
+sdist = { url = "https://files.pythonhosted.org/packages/0b/03/a88171e277e8caa88a4c77808c20ebb04ba74cc4681bf1e9416c862de237/aiofiles-24.1.0.tar.gz", hash = "sha256:22a075c9e5a3810f0c2e48f3008c94d68c65d763b9b03857924c99e57355166c", size = 30247 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c5/19/5af6804c4cc0fed83f47bff6e413a98a36618e7d40185cd36e69737f3b0e/aiofiles-23.2.1-py3-none-any.whl", hash = "sha256:19297512c647d4b27a2cf7c34caa7e405c0d60b5560618a29a9fe027b18b0107", size = 15727 },
+    { url = "https://files.pythonhosted.org/packages/a5/45/30bb92d442636f570cb5651bc661f52b610e2eec3f891a5dc3a4c3667db0/aiofiles-24.1.0-py3-none-any.whl", hash = "sha256:b4ec55f4195e3eb5d7abd1bf7e061763e864dd4954231fb8539a0ef8bb8260e5", size = 15896 },
 ]
 
 [[package]]
@@ -349,7 +343,7 @@ wheels = [
 
 [[package]]
 name = "chainlit"
-version = "2.2.0"
+version = "2.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -361,6 +355,7 @@ dependencies = [
     { name = "httpx" },
     { name = "lazify" },
     { name = "literalai" },
+    { name = "mcp" },
     { name = "nest-asyncio" },
     { name = "packaging" },
     { name = "pydantic" },
@@ -375,9 +370,9 @@ dependencies = [
     { name = "uvicorn" },
     { name = "watchfiles" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a8/86/7dc7a0911b9df9f9cf66450f31054416a56d0df4f06924d418e632565a66/chainlit-2.2.0.tar.gz", hash = "sha256:42e40faf146a20eecf5911a9cfed2e54b3513f554dd817f248e9acd7abc0203e", size = 9472876 }
+sdist = { url = "https://files.pythonhosted.org/packages/49/13/67c151fdceb3356a4defef8e665d934b9c77e5f532004a88e4798151b09a/chainlit-2.4.0.tar.gz", hash = "sha256:9836af311961170129c0fa498584b86a7a5fde15301e5337bc5f44efbc7b088b", size = 9512111 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/cf/65/c1b19903bc7a8bf0395c96943ddb7c4d30f3d8c76d0593ec6e946cde4954/chainlit-2.2.0-py3-none-any.whl", hash = "sha256:f222e25311ce6fdf4ce017d8f2c86547eb89036764eeb6275d368f28a8ce9381", size = 9622958 },
+    { url = "https://files.pythonhosted.org/packages/88/6f/2475b9588973bae4e5d96c09008bfabc2045c3efe70bac7af499458fd80a/chainlit-2.4.0-py3-none-any.whl", hash = "sha256:187fa3e2a2a24c287c51fcddd680c1156cafce990dce4e796268087593551c9e", size = 9660939 },
 ]
 
 [[package]]
@@ -830,21 +825,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/64/20/c380c311843318b577650286b2c7eaaac3a011fb982df0050bdbd7e453c5/flatbuffers-25.1.24.tar.gz", hash = "sha256:e0f7b7d806c0abdf166275492663130af40c11f89445045fbef0aa3c9a8643ad", size = 22155 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0e/e2/b066e6e02d67bf5261a6d7539648c6da3365cc9eff3eb6d82009595d84d9/flatbuffers-25.1.24-py2.py3-none-any.whl", hash = "sha256:1abfebaf4083117225d0723087ea909896a34e3fec933beedb490d595ba24145", size = 30955 },
-]
-
-[[package]]
-name = "frontend"
-version = "0.1.0"
-source = { virtual = "src/frontend" }
-dependencies = [
-    { name = "chainlit" },
-    { name = "tripcrew" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "chainlit", specifier = ">=2.2.0" },
-    { name = "tripcrew", virtual = "." },
 ]
 
 [[package]]
@@ -1947,6 +1927,25 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/99/5b/a36a337438a14116b16480db471ad061c36c3694df7c2084a0da7ba538b7/matplotlib_inline-0.1.7.tar.gz", hash = "sha256:8423b23ec666be3d16e16b60bdd8ac4e86e840ebd1dd11a30b9f117f2fa0ab90", size = 8159 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8f/8e/9ad090d3553c280a8060fbf6e24dc1c0c29704ee7d1c372f0c174aa59285/matplotlib_inline-0.1.7-py3-none-any.whl", hash = "sha256:df192d39a4ff8f21b1895d72e6a13f5fcc5099f00fa84384e0ea28c2cc0653ca", size = 9899 },
+]
+
+[[package]]
+name = "mcp"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "httpx" },
+    { name = "httpx-sse" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "sse-starlette" },
+    { name = "starlette" },
+    { name = "uvicorn" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/00/9d/ac1aaa3de8655a72fe07c0c2901ed35f0da2b3ffb2a1bfc4f46bbd7b6710/mcp-1.4.0.tar.gz", hash = "sha256:5b750b14ca178eeb7b2addbd94adb21785d7b4de5d5f3577ae193d787869e2dd", size = 155809 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/05/1cbc9f93900d4348f4e782811f251541d860e7d13c30cd68b402cd9edbd4/mcp-1.4.0-py3-none-any.whl", hash = "sha256:d2760e1ea7635b1e70da516698620a016cde214976416dd894f228600b08984c", size = 73036 },
 ]
 
 [[package]]
@@ -3355,6 +3354,19 @@ wheels = [
 ]
 
 [[package]]
+name = "sse-starlette"
+version = "2.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "starlette" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/71/a4/80d2a11af59fe75b48230846989e93979c892d3a20016b42bb44edb9e398/sse_starlette-2.2.1.tar.gz", hash = "sha256:54470d5f19274aeed6b2d473430b08b4b379ea851d953b11d7f1c4a2c118b419", size = 17376 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d9/e0/5b8bd393f27f4a62461c5cf2479c75a2cc2ffa330976f9f00f5f6e4f50eb/sse_starlette-2.2.1-py3-none-any.whl", hash = "sha256:6410a3d3ba0c89e7675d4c273a301d64649c03a5ef1ca101f10b47f895fd0e99", size = 10120 },
+]
+
+[[package]]
 name = "stack-data"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -3551,6 +3563,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "agentops" },
+    { name = "chainlit" },
     { name = "config" },
     { name = "crewai" },
     { name = "crewai-tools" },
@@ -3561,12 +3574,14 @@ dependencies = [
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pyyaml" },
+    { name = "regex" },
     { name = "requests" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "agentops", specifier = ">=0.3.26" },
+    { name = "chainlit", specifier = ">=2.4.0" },
     { name = "config", specifier = ">=0.5.1,<1.0.0" },
     { name = "crewai", specifier = ">=0.100.1" },
     { name = "crewai-tools", specifier = ">=0.33.0" },
@@ -3577,6 +3592,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.10.2,<3.0.0" },
     { name = "pydantic-settings", specifier = ">=2.7.1" },
     { name = "pyyaml", specifier = ">=6.0.2,<7.0.0" },
+    { name = "regex", specifier = ">=2024.11.6" },
     { name = "requests", specifier = ">=2.32.3,<3.0.0" },
 ]
 
