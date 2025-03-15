@@ -14,6 +14,8 @@ This repository demonstrates personalized route optimization using the Crewai fr
 
 ```bash
 cd  src/tripcrew
+```
+
 
 ```bash
 make run_app
